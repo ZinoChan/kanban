@@ -1,0 +1,102 @@
+<script>
+	import GridSvg from '../svgs/GridSvg.svelte';
+	import ChevronDown from '../svgs/ChevronDown.svelte';
+	import ListSvg from '../svgs/ListSvg.svelte';
+	import ChevronUp from '../svgs/ChevronUp.svelte';
+	import PlusSquare from '../svgs/PlusSquare.svelte';
+	import Plus from '../svgs/Plus.svelte';
+	import LoginSvg from '../svgs/LoginSvg.svelte';
+	import SignUpSvg from '../svgs/SignUpSvg.svelte';
+
+	let showDropDown = false;
+	let boards = [
+		{ value: 'Design', id: 'KjaHDxj' },
+		{ value: 'Development', id: 'HhTshknd' }
+	];
+</script>
+
+<div class="fixed top-16 left-0 z-10 transition-all translate-x-[0]">
+	<div
+		class="border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
+	>
+		<div class="py-4 overflow-y-auto">
+			<ul class="space-y-2">
+				<li>
+					<button
+						type="button"
+						class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
+						on:click={() => (showDropDown = !showDropDown)}
+					>
+						<ListSvg />
+						<span class="flex-1 ml-3 text-left whitespace-nowrap">All Boards</span>
+						{#if !showDropDown}
+							<ChevronDown />
+						{:else}
+							<ChevronUp />
+						{/if}
+					</button>
+					<ul class={`${showDropDown ? 'show' : 'hide'} flex-col py-2 space-y-2`}>
+						{#each boards as { value, id } (id)}
+							<li>
+								<a
+									href={`/${value}`}
+									class="flex space-x-4 items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
+								>
+									<GridSvg />
+									<span>
+										{value}
+									</span>
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</li>
+
+				<li>
+					<span
+						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<PlusSquare />
+						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> add new board </span>
+					</span>
+				</li>
+
+				<li>
+					<span
+						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<Plus />
+						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> add new task </span>
+					</span>
+				</li>
+				<li>
+					<a
+						href="/login"
+						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<LoginSvg />
+						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> login </span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="/signUp"
+						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<SignUpSvg />
+						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> Sign up </span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.show {
+		@apply flex;
+	}
+	.hide {
+		@apply hidden;
+	}
+</style>
