@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './mixins.scss';
+@import './btns.scss';
 
 body {
 	@include scrollbar;
