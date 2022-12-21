@@ -4,8 +4,17 @@
 
 @import './mixins.scss';
 @import './btns.scss';
+@import './forms.scss';
 
 body {
 	@include scrollbar;
 	background: #181818;
+}
+
+.screen-w {
+	@apply w-screen min-h-[calc(100vh-64px)] max-h-[calc(100vh-64px)] overflow-auto transition-all sm:translate-x-[256px] lg:translate-x-[300px] max-w-[calc(100vw+256px)];
+}
+
+.text {
+	@apply text-white dark:text-gray-800;
 }
