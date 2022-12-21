@@ -80,7 +80,7 @@
 				</li>
 				<li>
 					<a
-						href="/signUp"
+						href="/signup"
 						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<SignUpSvg />
