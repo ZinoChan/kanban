@@ -7,6 +7,8 @@
 	import Plus from '../svgs/Plus.svelte';
 	import LoginSvg from '../svgs/LoginSvg.svelte';
 	import SignUpSvg from '../svgs/SignUpSvg.svelte';
+	import Close from '../svgs/Close.svelte';
+	import Info from '../svgs/Info.svelte';
 
 	let showDropDown = false;
 	let boards = [
@@ -20,7 +22,7 @@
 		class="border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
 	>
 		<div class="py-4 overflow-y-auto">
-			<ul class="space-y-2">
+			<ul class="space-y-2 py-4 mb-4 border-b border-gray-200 dark:border-dark3">
 				<li>
 					<button
 						type="button"
@@ -28,14 +30,14 @@
 						on:click={() => (showDropDown = !showDropDown)}
 					>
 						<ListSvg />
-						<span class="flex-1 ml-3 text-left whitespace-nowrap">All Boards</span>
+						<span class="flex-1 font-bold ml-3 text-left whitespace-nowrap">All Boards</span>
 						{#if !showDropDown}
 							<ChevronDown />
 						{:else}
 							<ChevronUp />
 						{/if}
 					</button>
-					<ul class={`${showDropDown ? 'show' : 'hide'} flex-col py-2 space-y-2`}>
+					<ul class={`${showDropDown ? 'show' : 'hide'} flex-col space-y-2 py-4`}>
 						{#each boards as { value, id } (id)}
 							<li>
 								<a
@@ -43,7 +45,7 @@
 									class="flex space-x-4 items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
 								>
 									<GridSvg />
-									<span>
+									<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap">
 										{value}
 									</span>
 								</a>
@@ -57,7 +59,7 @@
 						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<PlusSquare />
-						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> add new board </span>
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new board </span>
 					</span>
 				</li>
 
@@ -66,7 +68,7 @@
 						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<Plus />
-						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> add new task </span>
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new task </span>
 					</span>
 				</li>
 				<li>
@@ -75,7 +77,7 @@
 						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<LoginSvg />
-						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> login </span>
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> login </span>
 					</a>
 				</li>
 				<li>
@@ -84,7 +86,7 @@
 						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<SignUpSvg />
-						<span class="capitalize flex-1 ml-3 whitespace-nowrap"> Sign up </span>
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> Sign up </span>
 					</a>
 				</li>
 			</ul>
