@@ -8,9 +8,9 @@
 	<Bolt />
 	<span class="sr-only">important task</span>
 	<div>
-		<h3 class="text-lg font-bold text-gray-900 dark:text-gray-300 group-hover:text-primary1 mb-3">
+		<h3 class=" font-bold text-gray-900 dark:text-gray-200 group-hover:text-primary1 mb-3">
 			Build Login page
 		</h3>
-		<p class="text-bold text-xs text-gray-600 dark:text-gray-300">0 of 2 subtasks</p>
+		<p class="text-bold text-sm text-gray-600 dark:text-gray-300">0 of 2 subtasks</p>
 	</div>
 </div>
