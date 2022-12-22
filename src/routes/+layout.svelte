@@ -1,4 +1,6 @@
 <script>
+	import '@fontsource/montserrat';
+	import '@fontsource/hind';
 	import '../styles/app.scss';
 	import Header from '../components/Header.svelte';
 	import SideNav from '../components/SideNav.svelte';
