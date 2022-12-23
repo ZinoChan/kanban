@@ -10,7 +10,10 @@
 	import Close from '../svgs/Close.svelte';
 	import Info from '../svgs/Info.svelte';
 	import NewBoadModal from './NewBoardModal.svelte';
+	import NewTaskModal from './NewTaskModal.svelte';
 	let showDropDown = false;
+	let showBoardModal = false;
+	let showTaskModal = false;
 	let boards = [
 		{ value: 'Design', id: 'KjaHDxj' },
 		{ value: 'Development', id: 'HhTshknd' }
@@ -65,12 +68,13 @@
 				</li>
 
 				<li>
-					<span
-						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					<button
+						on:click={() => (showTaskModal = !showTaskModal)}
+						class="cursor-pointer flex text-left w-full items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<Plus />
 						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new task </span>
-					</span>
+					</button>
 				</li>
 				<li>
 					<a
