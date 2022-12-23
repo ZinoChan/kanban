@@ -1,7 +1,9 @@
 .btn-primary {
 	@apply text-gray-800 capitalize font-bold bg-primary1 hover:bg-primary2 focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0;
 }
-
+.btn-secondary {
+	@apply text-white capitalize font-bold bg-primary3 hover:bg-[#4e4e8a] focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0;
+}
 .btn-theme {
 	@apply capitalize font-bold bg-white hover:bg-gray-200 dark:bg-dark1 dark:border-dark3 focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0  dark:hover:bg-dark3;
 }

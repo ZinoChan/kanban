@@ -28,3 +28,6 @@ h6 {
 .text {
 	@apply text-white dark:text-gray-800;
 }
+.modal-box {
+	@include scrollbar;
+}

@@ -11,13 +11,13 @@
 				Login
 			</h2>
 			<div class="mb-4">
-				<label for="email" class="form-label">email</label>
-				<input type="email" class="form-input" />
+				<label for="email" class="form-label ">email</label>
+				<input type="email" class="form-input lg:min-w-[400px]" />
 			</div>
 
 			<div class="mb-4">
 				<label for="password" class="form-label">password</label>
-				<input type="password" class="form-input" />
+				<input type="password" class="form-input lg:min-w-[400px]" />
 			</div>
 			<a href="#!" class="text-gray-800 dark:text-gray-300 hover:text-primary2">Forgot password?</a>
 			<button type="submit" class="btn-primary w-full my-4"> login </button>
