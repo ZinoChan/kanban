@@ -9,7 +9,7 @@
 	import SignUpSvg from '../svgs/SignUpSvg.svelte';
 	import Close from '../svgs/Close.svelte';
 	import Info from '../svgs/Info.svelte';
-
+	import NewBoadModal from './NewBoardModal.svelte';
 	let showDropDown = false;
 	let boards = [
 		{ value: 'Design', id: 'KjaHDxj' },
@@ -55,12 +55,13 @@
 				</li>
 
 				<li>
-					<span
-						class="cursor-pointer flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					<button
+						on:click={() => (showBoardModal = !showBoardModal)}
+						class="cursor-pointer flex text-left w-full items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<PlusSquare />
 						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new board </span>
-					</span>
+					</button>
 				</li>
 
 				<li>
