@@ -98,12 +98,5 @@
 		</div>
 	</div>
 </div>
-
-<style lang="scss">
-	.show {
-		@apply flex;
-	}
-	.hide {
-		@apply hidden;
-	}
-</style>
+<NewBoadModal bind:showBoardModal />
+<NewTaskModal bind:showTaskModal />
