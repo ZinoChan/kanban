@@ -95,6 +95,13 @@
 					</a>
 				</li>
 			</ul>
+			<div>
+				<span
+					class="flex items-center p-2 justify-center space-x-2 rounded-lg py-3 group hover:bg-gray-100 dark:hover:bg-dark2"
+				>
+					<ThemeToggle />
+				</span>
+			</div>
 		</div>
 	</div>
 </div>
