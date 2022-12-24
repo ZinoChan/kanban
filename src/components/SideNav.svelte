@@ -94,6 +94,15 @@
 						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> Sign up </span>
 					</a>
 				</li>
+				<li>
+					<a
+						href="/signup"
+						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<LogOut />
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> Log Out </span>
+					</a>
+				</li>
 			</ul>
 			<div>
 				<span
