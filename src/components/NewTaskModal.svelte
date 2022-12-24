@@ -48,13 +48,15 @@
 				</h3>
 				<form class="space-y-6" action="#">
 					<div>
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+						<label for="title" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Title</label
 						>
 						<input type="text" class="form-input" placeholder="e.g. Web Design" required />
 					</div>
 					<div>
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+						<label
+							for="description"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Description</label
 						>
 
@@ -65,8 +67,9 @@
 						/>
 					</div>
 					<div transition:fade>
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
-							>Sub Tasks</label
+						<label
+							for="sub tasks"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200">Sub Tasks</label
 						>
 						<input
 							type="text"
@@ -80,8 +83,9 @@
 					</div>
 					<button type="button" on:click={addTask} class="btn-secondary w-full">add SubTask</button>
 					<div class="mb-3">
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
-							>Priority</label
+						<label
+							for="priority"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200">Priority</label
 						>
 						<div class=" w-full">
 							<select class="form-select">
@@ -93,8 +97,9 @@
 						</div>
 					</div>
 					<div class="mb-2">
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
-							>Status</label
+						<label
+							for="status"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200">Status</label
 						>
 						<div class=" w-full">
 							<select class="form-select">

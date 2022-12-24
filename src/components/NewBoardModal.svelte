@@ -4,7 +4,7 @@
 	import { boardColumns } from '../stores/settings';
 	import BoardColumn from './Input.svelte';
 	export let showBoardModal: Boolean;
-	$boardColumns = [{ value: '', id: 3 }];
+	$boardColumns = [];
 
 	function removeColumn(inputId: number) {
 		$boardColumns = $boardColumns.filter(({ id }) => id !== inputId);
@@ -46,14 +46,18 @@
 				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add new board</h3>
 				<form class="space-y-6" action="#">
 					<div>
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+						<label
+							for="board name"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Board Name</label
 						>
 						<input type="text" class="form-input" placeholder="e.g. Web Design" required />
 					</div>
 
 					<div transition:fade>
-						<label for="email" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+						<label
+							for="board columns"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Board Columns</label
 						>
 						<input type="text" class="form-input mb-3" placeholder="e.g. Todo.." required />
