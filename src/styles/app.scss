@@ -31,3 +31,10 @@ h6 {
 .modal-box {
 	@include scrollbar;
 }
+.h-inherit {
+	height: inherit;
+}
+
+.min-h-inherit {
+	min-height: inherit;
+}

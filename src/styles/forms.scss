@@ -1,5 +1,8 @@
 .form-input {
 	@apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:border-primary2 focus:ring-1 focus:ring-primary2 block w-full  p-2.5 dark:bg-dark1 dark:border-dark3 dark:placeholder-gray-400 dark:text-white;
+	&:disabled {
+		@apply cursor-not-allowed;
+	}
 }
 
 .form-label {
