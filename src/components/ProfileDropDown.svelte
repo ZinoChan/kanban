@@ -24,7 +24,7 @@
 		>
 			<li>
 				<a
-					href="#"
+					href="/profile"
 					class="font-bold capitalize flex space-x-2 py-2 px-4 group hover:bg-gray-100 dark:hover:bg-dark4 dark:hover:text-white"
 				>
 					<User />
