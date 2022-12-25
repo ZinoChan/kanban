@@ -4,3 +4,5 @@ import { writable } from 'svelte/store';
 export const boardColumns = writable<BoardColumn[]>([]);
 
 export const subtaskColumns = writable<BoardColumn[]>([]);
+
+export const showSubTasksModal = writable<boolean>(false);
