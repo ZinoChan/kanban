@@ -7,3 +7,11 @@
 .btn-theme {
 	@apply capitalize font-bold bg-white hover:bg-gray-200 dark:bg-dark1 dark:border-dark3 focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0  dark:hover:bg-dark3;
 }
+
+.btn-danger {
+	@apply capitalize text-white font-bold bg-red-600 hover:bg-red-500 focus:outline-none rounded text-sm px-7 py-3;
+}
+
+.btn-white {
+	@apply capitalize text-gray-900 font-bold bg-white hover:bg-gray-200 focus:outline-none rounded text-sm px-7 py-3;
+}
