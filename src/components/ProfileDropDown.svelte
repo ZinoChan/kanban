@@ -2,6 +2,7 @@
 	import Trending from '../svgs/Trending.svelte';
 	import User from '../svgs/User.svelte';
 	import MoreVertical from '../svgs/MoreVertical.svelte';
+	import Trash from '../svgs/Trash.svelte';
 	let showDropDown = false;
 </script>
 
@@ -33,12 +34,20 @@
 			</li>
 			<li>
 				<a
-					href="#"
+					href="/stats"
 					class="font-bold capitalize flex  space-x-2 py-2 px-4 group hover:bg-gray-100 dark:hover:bg-dark4 dark:hover:text-white"
 				>
 					<Trending />
 					<span class="inline-flex self-end"> progress </span>
 				</a>
+			</li>
+			<li>
+				<button
+					class="w-full text-left font-bold capitalize flex  space-x-2 py-2 px-4 group hover:bg-gray-100 dark:hover:bg-dark4 dark:hover:text-white"
+				>
+					<Trash />
+					<span class="inline-flex self-end"> Delete board </span>
+				</button>
 			</li>
 		</ul>
 	</div>
