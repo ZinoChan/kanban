@@ -11,6 +11,8 @@
 	import Info from '../svgs/Info.svelte';
 	import NewBoadModal from './NewBoardModal.svelte';
 	import NewTaskModal from './NewTaskModal.svelte';
+	import LogOut from '../svgs/LogOut.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 	let showDropDown = false;
 	let showBoardModal = false;
 	let showTaskModal = false;
@@ -25,11 +27,11 @@
 		class="border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
 	>
 		<div class="py-4 overflow-y-auto">
-			<ul class="space-y-2 py-4 mb-4 border-b border-gray-200 dark:border-dark3">
+			<ul class="flex flex-col space-y-2 py-4 mb-4 border-b border-gray-200 dark:border-dark3">
 				<li>
 					<button
 						type="button"
-						class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
+						class="outline-none focus:outline-none flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
 						on:click={() => (showDropDown = !showDropDown)}
 					>
 						<ListSvg />
@@ -40,7 +42,7 @@
 							<ChevronUp />
 						{/if}
 					</button>
-					<ul class={`${showDropDown ? 'show' : 'hide'} flex-col space-y-2 py-4`}>
+					<ul class={`${showDropDown ? 'flex' : 'hidden'} flex-col space-y-2 py-4`}>
 						{#each boards as { value, id } (id)}
 							<li>
 								<a
@@ -110,6 +112,22 @@
 				>
 					<ThemeToggle />
 				</span>
+			</div>
+
+			<div class="p-4 mt-6  rounded-lg bg-primary3 border border-gray-300 dark:border-dark3">
+				<div class="flex items-center mb-3">
+					<span class="w-6 h-6 inline-block text-gray-300">
+						<Info />
+					</span>
+					<button
+						type="button"
+						class="ml-auto -mx-1.5 -my-1.5 bg-[#4e4e8a] hover:bg-[#59599c] rounded-lg p-1 text-gray-100 inline-flex h-6 w-6 "
+					>
+						<span class="sr-only">Close</span>
+						<Close />
+					</button>
+				</div>
+				<p class="mb-3 text-gray-300">Login or signup to save your working flow.</p>
 			</div>
 		</div>
 	</div>
