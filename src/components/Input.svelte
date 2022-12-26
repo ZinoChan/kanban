@@ -1,12 +1,23 @@
 <script lang="ts">
 	import type { BoardColumn } from 'src/types/BoardColumn.types';
+	import ColorPicker from './ColorPicker.svelte';
+	import Close from '../svgs/Close.svelte';
 	export let inputData: BoardColumn;
 	export let removeColumn: any;
-	import Close from '../svgs/Close.svelte';
+	export let isBoard = false;
 </script>
 
 <div class="flex mb-3 items-center space-x-2">
-	<input value={inputData.value} type="text" class="form-input" placeholder="Your title.." />
+	{#if isBoard}
+		<div class="flex items-center space-x-1">
+			<input value={inputData.value} type="text" class="form-input" placeholder="Your title.." />
+			<div>
+				<ColorPicker />
+			</div>
+		</div>
+	{:else}
+		<input value={inputData.value} type="text" class="form-input" placeholder="Your title.." />
+	{/if}
 	<button
 		on:click={() => removeColumn(inputData.id)}
 		type="button"
