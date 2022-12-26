@@ -21,8 +21,8 @@ h6 {
 	font-family: 'Montserrat';
 }
 
-.screen-w {
-	@apply w-screen min-h-[calc(100vh-64px)] max-h-[calc(100vh-64px)] overflow-auto transition-all sm:translate-x-[256px] lg:translate-x-[300px] max-w-[calc(100vw+256px)];
+.main-container {
+	@apply px-12 py-12 w-screen min-h-[calc(100vh-64px)] max-h-[calc(100vh-64px)] overflow-auto transition-all  max-w-[calc(100vw+256px)];
 }
 
 .text {
