@@ -2,7 +2,7 @@
 	import Task from './Task.svelte';
 </script>
 
-<div class="p-6">
+<div>
 	<div class="flex space-x-4">
 		<div>
 			<h3
@@ -15,7 +15,7 @@
 				</span>
 			</h3>
 
-			<div class="flex flex-col space-y-4">
+			<div class="flex flex-col space-y-6">
 				<Task />
 				<Task />
 				<Task />
