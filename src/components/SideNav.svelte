@@ -9,6 +9,7 @@
 	import SignUpSvg from '../svgs/SignUpSvg.svelte';
 	import Close from '../svgs/Close.svelte';
 	import Info from '../svgs/Info.svelte';
+	import Flame from '../svgs/Flame.svelte';
 	import NewBoadModal from './NewBoardModal.svelte';
 	import NewTaskModal from './NewTaskModal.svelte';
 	import LogOut from '../svgs/LogOut.svelte';
@@ -26,11 +27,11 @@
 	];
 </script>
 
-	<div
+<div
 	class={`fixed top-16 left-0 z-10 transition-all ${
 		$isSideBarOpen ? 'translate-x-0' : '-translate-x-full'
 	}`}
-	>
+>
 	<div
 		class="relative border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
 	>
@@ -97,6 +98,16 @@
 						<Plus />
 						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new task </span>
 					</button>
+				</li>
+
+				<li>
+					<a
+						href="/idea"
+						class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
+					>
+						<Flame />
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> ideas </span>
+					</a>
 				</li>
 				<li>
 					<a
