@@ -62,7 +62,7 @@
 						>
 						<input type="text" class="form-input mb-3" placeholder="e.g. Todo.." required />
 						{#each $boardColumns as column}
-							<BoardColumn {removeColumn} inputData={column} />
+							<BoardColumn isBoard {removeColumn} inputData={column} />
 						{/each}
 					</div>
 					<button type="button" on:click={addColumn} class="btn-secondary w-full">add Column</button
