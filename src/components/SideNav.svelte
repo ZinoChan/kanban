@@ -13,6 +13,10 @@
 	import NewTaskModal from './NewTaskModal.svelte';
 	import LogOut from '../svgs/LogOut.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
+	import SidebarOpen from '../svgs/SidebarOpen.svelte';
+	import SidebarClose from '../svgs/SidebarClose.svelte';
+	import { isSideBarOpen } from '../stores/settings';
+
 	let showDropDown = false;
 	let showBoardModal = false;
 	let showTaskModal = false;
@@ -22,10 +26,26 @@
 	];
 </script>
 
-<div class="fixed top-16 left-0 z-10 transition-all translate-x-[0]">
 	<div
-		class="border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
+	class={`fixed top-16 left-0 z-10 transition-all ${
+		$isSideBarOpen ? 'translate-x-0' : '-translate-x-full'
+	}`}
 	>
+	<div
+		class="relative border-r border-gray-200 dark:border-dark3 p-4 bg-white w-64 lg:w-[300px] dark:bg-dark1 min-h-screen"
+	>
+		<button
+			on:click={() => isSideBarOpen.update((val) => !val)}
+			class={`cursor-pointer z-30 absolute top-0 bg-light hover:bg-gray-300 dark:bg-dark4 dark:hover:dark3 rounded py-1 group px-2 ${
+				$isSideBarOpen ? 'right-0' : '-right-[40px]'
+			}`}
+		>
+			{#if $isSideBarOpen}
+				<SidebarClose />
+			{:else}
+				<SidebarOpen />
+			{/if}
+		</button>
 		<div class="py-4 overflow-y-auto">
 			<ul class="flex flex-col space-y-2 py-4 mb-4 border-b border-gray-200 dark:border-dark3">
 				<li>

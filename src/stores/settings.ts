@@ -6,3 +6,5 @@ export const boardColumns = writable<BoardColumn[]>([]);
 export const subtaskColumns = writable<BoardColumn[]>([]);
 
 export const showSubTasksModal = writable<boolean>(false);
+
+export const isSideBarOpen = writable<boolean>(true);
