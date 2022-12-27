@@ -3,11 +3,12 @@
 	import { fade } from 'svelte/transition';
 	import { boardColumns } from '../stores/settings';
 	import BoardColumn from './Input.svelte';
+	import ColorPicker from './ColorPicker.svelte';
 	export let showBoardModal: Boolean;
 	$boardColumns = [];
 
 	function removeColumn(inputId: number) {
-		$boardColumns = $boardColumns.filter(({ id }) => id !== inputId);
+		$boardColumns = $boardColumns.filter(({ id }: { id: any }) => id !== inputId);
 	}
 
 	function addColumn() {
@@ -27,12 +28,11 @@
 	on:keyup={null}
 	class={`${
 		showBoardModal ? '' : 'hidden'
-	} fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-opacity-80 bg-gray-300 dark:bg-dark4 dark:bg-opacity-90 w-screen h-screen p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full`}
+	} fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-opacity-80 bg-gray-300 dark:bg-dark4 dark:bg-opacity-90 w-screen h-screen p-4 overflow-x-visible overflow-y-auto md:inset-0 h-modal md:h-full`}
 >
 	<div
-		class="modal-box relative w-full h-full max-w-md md:h-auto max-h-[calc(100vh-64px)] overflow-y-auto"
+		class="modal-box relative w-full h-full max-w-md md:h-auto max-h-[calc(100vh-64px)] overflow-visible"
 	>
-		<!-- Modal content -->
 		<div class="relative bg-white rounded-lg shadow dark:bg-dark2">
 			<button
 				type="button"
@@ -60,7 +60,10 @@
 							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Board Columns</label
 						>
-						<input type="text" class="form-input mb-3" placeholder="e.g. Todo.." required />
+						<div class="flex items-center space-x-2 mb-3">
+							<input type="text" class="form-input" placeholder="e.g. Todo.." required />
+							<ColorPicker />
+						</div>
 						{#each $boardColumns as column}
 							<BoardColumn isBoard {removeColumn} inputData={column} />
 						{/each}
