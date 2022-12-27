@@ -45,7 +45,7 @@
 
 	{#if ddActive}
 		<div
-			class="p-4 absolute z-10 top-10 bg-white dark:bg-dark2 border border-gray-400 dark:border-dark3 rounded"
+			class="p-4 absolute z-20 top-10 bg-white dark:bg-dark2 border border-gray-400 dark:border-dark3 rounded"
 			use:clickOutside
 		>
 			<div class="values-dropdown-grid">
@@ -78,12 +78,12 @@
 		margin-left: 4px;
 	}
 
-	.caret.top {
+	/* .caret.top {
 		border-left: 4px solid transparent;
 		border-right: 4px solid transparent;
 		border-bottom: 4px solid #555;
 		border-top: none;
-	}
+	} */
 
 	.active {
 		box-shadow: inset 0 0 0 1px #fff, 0 0 3px 1px rgba(0, 0, 0, 0.25);
