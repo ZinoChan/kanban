@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import GridSvg from '../svgs/GridSvg.svelte';
 	import ChevronDown from '../svgs/ChevronDown.svelte';
 	import ListSvg from '../svgs/ListSvg.svelte';
@@ -17,14 +17,12 @@
 	import SidebarOpen from '../svgs/SidebarOpen.svelte';
 	import SidebarClose from '../svgs/SidebarClose.svelte';
 	import { isSideBarOpen } from '../stores/settings';
+	import { data } from '../stores/data';
 
+	$: boardsData = $data.boards;
 	let showDropDown = false;
 	let showBoardModal = false;
 	let showTaskModal = false;
-	let boards = [
-		{ value: 'Design', id: 'KjaHDxj' },
-		{ value: 'Development', id: 'HhTshknd' }
-	];
 </script>
 
 <div
@@ -64,19 +62,21 @@
 						{/if}
 					</button>
 					<ul class={`${showDropDown ? 'flex' : 'hidden'} flex-col space-y-2 py-4`}>
-						{#each boards as { value, id } (id)}
-							<li>
-								<a
-									href={`/${value}`}
-									class="flex space-x-4 items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
-								>
-									<GridSvg />
-									<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap">
-										{value}
-									</span>
-								</a>
-							</li>
-						{/each}
+						{#if boardsData && boardsData.length > 0}
+							{#each boardsData as { name, slug, id } (id)}
+								<li>
+									<a
+										href={`/boards/${slug}`}
+										class="flex space-x-4 items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-dark2"
+									>
+										<GridSvg />
+										<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap">
+											{name}
+										</span>
+									</a>
+								</li>
+							{/each}
+						{/if}
 					</ul>
 				</li>
 
