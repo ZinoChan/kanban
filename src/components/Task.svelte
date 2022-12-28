@@ -3,7 +3,7 @@
 	import { currentTask, showSubTasksModal } from '../stores/settings';
 	import PriorityIcon from './PriorityIcon.svelte';
 	export let taskData: ITask;
-	let completedCount = taskData
+	$: completedCount = taskData
 		? taskData.subTasks.filter((subTask) => subTask.isCompleted).length
 		: 0;
 	function onTaskclick() {
