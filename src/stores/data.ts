@@ -1,4 +1,3 @@
-// src/stores/content.js
 import { dummyData } from '../data';
 import { writable } from 'svelte/store';
 import type { TData } from 'src/types/Data.types';
@@ -14,6 +13,6 @@ export const data = writable<TData>(initialValue);
 
 data.subscribe((value) => {
 	if (isBrowser) {
-		window.localStorage.setItem('data', JSON.stringify(value));
+		window?.localStorage?.setItem('data', JSON.stringify(value));
 	}
 });
