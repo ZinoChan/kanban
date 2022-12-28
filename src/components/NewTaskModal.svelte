@@ -7,7 +7,7 @@
 	$subtaskColumns = [];
 
 	function removeColumn(inputId: number) {
-		$subtaskColumns = $subtaskColumns.filter(({ id }) => id !== inputId);
+		$subtaskColumns = $subtaskColumns.filter(({ id }: { id: any }) => id !== inputId);
 	}
 
 	function addTask() {
@@ -32,7 +32,6 @@
 	<div
 		class="modal-box relative w-full h-full max-w-md md:h-auto max-h-[calc(100vh-64px)] overflow-y-auto"
 	>
-		<!-- Modal content -->
 		<div class="relative bg-white rounded-lg shadow dark:bg-dark2">
 			<button
 				type="button"
