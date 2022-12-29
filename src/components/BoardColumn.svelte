@@ -1,24 +1,37 @@
 <script lang="ts">
+	import { data } from '../stores/data';
+	import { currentColumn } from '../stores/selectedColumn';
+	import { showAddTaskModal } from '../stores/settings';
 	import type { TBoardColumn } from '../types/Board.types';
 	import Task from './Task.svelte';
 	export let columnData: TBoardColumn;
+
+	$: _columnData = $data.boards[columnData.boardId].columns[columnData.id];
+
+	function onAddTask() {
+		currentColumn.set(_columnData);
+		showAddTaskModal.set(true);
+	}
 </script>
 
 <div>
-	<div class="flex space-x-4">
-		<div>
+	<div class="flex min-w-[250px] space-x-4">
+		<div class="w-full">
 			<h3
-				class="text-sm font-semibold text-gray-800 dark:text-gray-400 uppercase mb-6 flex space-x-2 items-center"
+				class="text-sm font-semibold text-gray-800 dark:text-gray-400 uppercase mb-2 flex space-x-2 items-center"
 			>
-				<span style="background: {columnData.colColor};" class="w-3 h-3 rounded-full" />
+				<span style="background: {_columnData.colColor};" class="w-3 h-3 rounded-full" />
 				<span>
-					{columnData.colName}
-					<span>({Object.values(columnData.colTasks).length})</span>
+					{_columnData.colName}
+					<span>({Object.values(_columnData.colTasks).length})</span>
 				</span>
 			</h3>
+			<button on:click={onAddTask} class="w-full mb-4 btn-theme text-gray-900 dark:text-white"
+				>+</button
+			>
 
 			<div class="flex flex-col space-y-6">
-				{#each Object.values(columnData.colTasks) as task (task.id)}
+				{#each Object.values(_columnData.colTasks) as task (task.id)}
 					<Task taskData={task} />
 				{/each}
 			</div>
