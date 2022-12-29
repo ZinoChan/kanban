@@ -12,7 +12,7 @@
 	}`}
 >
 	{#if data}
-		<div class="flex items-center space-x-6">
+		<div class="flex  space-x-6">
 			{#each Object.values(data.columns) as column (column.id)}
 				<BoardColumn columnData={column} />
 			{/each}
