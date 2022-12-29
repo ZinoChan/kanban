@@ -6,6 +6,7 @@ export const dummyData = {
 			slug: 'UI-Design',
 			columns: {
 				randomColId87: {
+					boardId: 'randomId93847',
 					colName: 'todo',
 					id: 'randomColId87',
 					colColor: '#90BAEE',
@@ -27,6 +28,7 @@ export const dummyData = {
 					}
 				},
 				randomColId09: {
+					boardId: 'randomId93847',
 					colName: 'doing',
 					id: 'randomColId09',
 					colColor: '#90BAEE',
