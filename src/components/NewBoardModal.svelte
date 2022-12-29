@@ -4,21 +4,47 @@
 	import { boardColumns } from '../stores/settings';
 	import BoardColumn from './Input.svelte';
 	import ColorPicker from './ColorPicker.svelte';
+	import { createBoard, createBoardColumn, randomColor } from '../util/helpers';
+	import type { TInputData } from '../types/BoardColumn.types';
+
+	import newUniqueId from 'locally-unique-id-generator';
+	import { data } from '../stores/data';
 	export let showBoardModal: Boolean;
 	$boardColumns = [];
+
+	let firstCol = {
+		id: newUniqueId(),
+		value: '',
+		color: '#501B87'
+	};
+
+	let boardName = '';
 
 	function removeColumn(inputId: number) {
 		$boardColumns = $boardColumns.filter(({ id }: { id: any }) => id !== inputId);
 	}
 
 	function addColumn() {
+		let color = randomColor();
 		$boardColumns = [
 			...$boardColumns,
 			{
-				id: $boardColumns.length + 1,
-				value: ''
+				id: newUniqueId(),
+				value: '',
+				color
 			}
 		];
+	}
+
+	function handleSubmit() {
+		const columns = $boardColumns.map((col: TInputData) => createBoardColumn(col.value, col.color));
+		columns.push(createBoardColumn(firstCol.value, firstCol.color));
+		const board = createBoard(boardName, columns);
+		let newData = $data;
+		newData.boards[board.id] = board;
+
+		data.set(newData);
+		showBoardModal = !showBoardModal;
 	}
 </script>
 
@@ -44,14 +70,20 @@
 			</button>
 			<div class="px-6 py-6 lg:px-8">
 				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Add new board</h3>
-				<form class="space-y-6" action="#">
+				<form on:submit|preventDefault={handleSubmit} class="space-y-6">
 					<div>
 						<label
 							for="board name"
 							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Board Name</label
 						>
-						<input type="text" class="form-input" placeholder="e.g. Web Design" required />
+						<input
+							bind:value={boardName}
+							type="text"
+							class="form-input"
+							placeholder="e.g. Web Design"
+							required
+						/>
 					</div>
 
 					<div transition:fade>
@@ -61,8 +93,14 @@
 							>Board Columns</label
 						>
 						<div class="flex items-center space-x-2 mb-3">
-							<input type="text" class="form-input" placeholder="e.g. Todo.." required />
-							<ColorPicker />
+							<input
+								bind:value={firstCol.value}
+								type="text"
+								class="form-input"
+								placeholder="e.g. Todo.."
+								required
+							/>
+							<ColorPicker bind:value={firstCol.color} />
 						</div>
 						{#each $boardColumns as column}
 							<BoardColumn isBoard {removeColumn} inputData={column} />
