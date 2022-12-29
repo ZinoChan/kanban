@@ -2,17 +2,18 @@ export type TBoard = {
 	id: string;
 	slug: string;
 	name: string;
-	columns: TBoardColumn[];
+	columns: { [randomId: string]: TBoardColumn };
 };
 
 export type TBoardColumn = {
 	colName: string;
 	id: string;
 	colColor: string;
-	colTasks: ITask[];
+	colTasks: { [randomId: string]: ITask };
 };
 export interface ITask {
-	boardSlug: string;
+	boardId: string;
+	colId: string;
 	taskTitle: string;
 	taskDescription: string;
 	taskPriority: string;

@@ -1,4 +1,5 @@
 <script lang="ts">
+	/** @type {import('./$types').PageData} */
 	import type { TBoard } from '../../../types/Board.types';
 	import { isSideBarOpen } from '../../../stores/settings';
 	import BoardColumn from '../../../components/BoardColumn.svelte';
@@ -12,7 +13,7 @@
 >
 	{#if data}
 		<div class="flex items-center space-x-6">
-			{#each data.columns as column (column.id)}
+			{#each Object.values(data.columns) as column (column.id)}
 				<BoardColumn columnData={column} />
 			{/each}
 		</div>

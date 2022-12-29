@@ -1,17 +1,18 @@
 export const dummyData = {
-	boards: [
-		{
+	boards: {
+		randomId93847: {
 			name: 'UI Design',
-			id: '#randomId1',
+			id: 'randomId93847',
 			slug: 'UI-Design',
-			columns: [
-				{
+			columns: {
+				randomColId87: {
 					colName: 'todo',
-					id: '#randomId2',
+					id: 'randomColId87',
 					colColor: '#90BAEE',
-					colTasks: [
-						{
-							boardSlug: 'UI-Design',
+					colTasks: {
+						randomTaskId12: {
+							boardId: 'randomId93847',
+							colId: 'randomColId87',
 							taskTitle: 'design home page',
 							taskDescription: ' design home page component',
 							taskPriority: 'important',
@@ -21,17 +22,18 @@ export const dummyData = {
 								{ title: 'design header', isCompleted: false, id: 'randomId515' },
 								{ title: 'design hero section', isCompleted: false, id: 'randomid134' }
 							],
-							id: '#randomId4'
+							id: 'randomTaskId12'
 						}
-					]
+					}
 				},
-				{
+				randomColId09: {
 					colName: 'doing',
-					id: '#randomId547',
+					id: 'randomColId09',
 					colColor: '#90BAEE',
-					colTasks: [
-						{
-							boardSlug: 'UI-Design',
+					colTasks: {
+						randomTaskId983: {
+							boardId: 'randomId93847',
+							colId: 'randomColId09',
 							taskTitle: 'design system',
 							taskDescription: 'design components',
 							taskPriority: 'urgent',
@@ -41,13 +43,13 @@ export const dummyData = {
 								{ title: 'design buttons', isCompleted: false, id: 'randomid4234' },
 								{ title: 'design icons', isCompleted: true, id: 'randomidkd' }
 							],
-							id: '#randomId4'
+							id: 'randomTaskId983'
 						}
-					]
+					}
 				}
-			]
+			}
 		}
-	],
+	},
 	ideas: [
 		{
 			name: 'learn vue js',
@@ -57,21 +59,3 @@ export const dummyData = {
 		}
 	]
 };
-// function removeColumn(inputId: string) {
-// 		newBoard.columns.filter(({ id }) => id !== inputId);
-// 	}
-
-// 	const newBoardColumn = (colName: string, colColor: string) : TBoardColumn => ({
-// 		colName,
-// 		id: "randomId3",
-// 		colColor,
-// 		colTasks: []
-
-// 	})
-
-// 	function addColumn(colName: string, colColor: string) {
-// 		newBoard.columns = [
-// 			...newBoard.columns,
-// 			newBoardColumn(colName, colColor)
-// 		]
-// 	}

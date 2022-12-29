@@ -1,11 +1,17 @@
 import { error } from '@sveltejs/kit';
 import { data } from '../../../stores/data';
-import { get } from 'svelte/store';
+import type { TData } from 'src/types/Data.types';
+
+export const ssr = false;
 
 export function load({ params }: { params: any }) {
-	const dummyData = get(data);
+	let $data: TData | undefined;
 
-	const boardData = dummyData.boards.find((board) => board.slug == params.slug);
+	data.subscribe((value) => {
+		$data = value;
+	});
+
+	const boardData = $data && Object.values($data.boards).find((board) => board.slug == params.slug);
 
 	if (boardData) return { ...boardData };
 

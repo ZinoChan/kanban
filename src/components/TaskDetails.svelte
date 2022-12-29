@@ -7,10 +7,9 @@
 	import type { ITask } from '../types/Board.types';
 	import { data } from '../stores/data';
 
-	$: task = $data.boards
-		.find((board) => board.slug === $currentTask.boardSlug)
-		?.columns.find((col) => col.colName === $currentTask.status)
-		?.colTasks.find((t) => t.id === $currentTask.id);
+	$: task =
+		$data.boards[$currentTask.boardId]?.columns[$currentTask.colId]?.colTasks[$currentTask.id];
+
 	let showDropDown = false;
 	let showDelModal = false;
 

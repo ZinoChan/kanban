@@ -19,7 +19,7 @@
 	import { isSideBarOpen } from '../stores/settings';
 	import { data } from '../stores/data';
 
-	$: boardsData = $data.boards;
+	$: boardsData = Object.values($data.boards);
 	let showDropDown = false;
 	let showBoardModal = false;
 	let showTaskModal = false;

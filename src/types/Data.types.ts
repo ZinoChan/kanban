@@ -1,7 +1,7 @@
 import type { TBoard } from './Board.types';
 
 export type TData = {
-	boards: TBoard[];
+	boards: { [randomId: string]: TBoard };
 	ideas: TIdea[];
 };
 

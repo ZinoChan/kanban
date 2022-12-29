@@ -13,12 +13,12 @@
 				<span style="background: {columnData.colColor};" class="w-3 h-3 rounded-full" />
 				<span>
 					{columnData.colName}
-					<span>({columnData.colTasks.length})</span>
+					<span>({Object.values(columnData.colTasks).length})</span>
 				</span>
 			</h3>
 
 			<div class="flex flex-col space-y-6">
-				{#each columnData.colTasks as task (task.id)}
+				{#each Object.values(columnData.colTasks) as task (task.id)}
 					<Task taskData={task} />
 				{/each}
 			</div>
