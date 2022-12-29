@@ -7,6 +7,7 @@ export type TBoard = {
 
 export type TBoardColumn = {
 	colName: string;
+	boardId: string;
 	id: string;
 	colColor: string;
 	colTasks: { [randomId: string]: ITask };
