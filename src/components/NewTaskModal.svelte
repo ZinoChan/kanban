@@ -42,10 +42,14 @@
 				<span class="sr-only">Close modal</span>
 			</button>
 			<div class="px-6 py-6 lg:px-8">
-				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white capitalize">
-					Add new Task
-				</h3>
-				<form class="space-y-6" action="#">
+				<h2
+					class="text-lg font-bold text-gray-800 dark:text-gray-400 uppercase mb-3 flex space-x-2 items-center justify-center"
+				>
+					<span style="background: {$currentColumn.colColor};" class="w-3 h-3 rounded-full" />
+					<span>
+						{$currentColumn.colName}'s
+					</span>
+				</h2>
 					<div>
 						<label for="title" class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Title</label
