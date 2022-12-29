@@ -39,6 +39,8 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/hind": "^4.5.10",
-		"@fontsource/montserrat": "^4.5.13"
+		"@fontsource/montserrat": "^4.5.13",
+		"locally-unique-id-generator": "^0.1.5",
+		"uuidv4": "^6.2.13"
 	}
 }
