@@ -2,10 +2,13 @@
 	import type { ITask } from '../types/Board.types';
 	import { currentTask, showSubTasksModal } from '../stores/settings';
 	import PriorityIcon from './PriorityIcon.svelte';
+	import { data } from '../stores/data';
+
 	export let taskData: ITask;
-	$: completedCount = taskData
-		? taskData.subTasks.filter((subTask) => subTask.isCompleted).length
-		: 0;
+
+	$: task = $data.boards[taskData.boardId].columns[taskData.colId].colTasks[taskData.id];
+
+	$: completedCount = task ? task.subTasks.filter((subTask) => subTask.isCompleted).length : 0;
 	function onTaskclick() {
 		currentTask.set(taskData);
 		showSubTasksModal.update((val) => (val = !val));
