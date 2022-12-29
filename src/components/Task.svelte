@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ITask } from '../types/Board.types';
-	import { currentTask, showSubTasksModal } from '../stores/settings';
+	import { showSubTasksModal } from '../stores/settings';
+	import { currentTask } from '../stores/selectedTask';
 	import PriorityIcon from './PriorityIcon.svelte';
 	import { data } from '../stores/data';
 

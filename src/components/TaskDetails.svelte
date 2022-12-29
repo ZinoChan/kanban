@@ -3,7 +3,7 @@
 	import { showSubTasksModal } from '../stores/settings';
 	import Close from '../svgs/Close.svelte';
 	import DeleteTask from './DeleteTask.svelte';
-	import { currentTask } from '../stores/settings';
+	import { currentTask } from '../stores/selectedTask';
 	import type { ITask } from '../types/Board.types';
 	import { data } from '../stores/data';
 
@@ -14,6 +14,18 @@
 	let showDelModal = false;
 
 	$: completedCount = task ? task.subTasks.filter((subTask) => subTask.isCompleted).length : 0;
+
+	function updateSubTask(id: string) {
+		task.subTasks = task.subTasks.map((t) => {
+			if (t.id === id) return { ...t, isCompleted: !t.isCompleted };
+			else return t;
+		});
+
+		let newData = $data;
+		newData.boards[task.boardId].columns[task.colId].colTasks[task.id] = task;
+
+		data.set(newData);
+	}
 
 	function onCloseModal() {
 		currentTask.set({} as ITask);
@@ -86,8 +98,8 @@
 
 							{#each task.subTasks as { title, isCompleted, id } (id)}
 								<div
-									on:click={() => (isCompleted = !isCompleted)}
-									on:keyup={() => (isCompleted = !isCompleted)}
+									on:click={() => updateSubTask(id)}
+									on:keyup={() => updateSubTask(id)}
 									class={`${
 										isCompleted && 'line-through text-gray-400'
 									} flex items-center py-2 pl-4 rounded border mb-2 border-gray-200 hover:bg-gray-200 dark:hover:bg-dark3 cursor-pointer dark:border-dark3 bg-light dark:bg-dark1`}
