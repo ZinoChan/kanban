@@ -22,7 +22,6 @@
 	$: boardsData = Object.values($data.boards);
 	let showDropDown = false;
 	let showBoardModal = false;
-	let showTaskModal = false;
 </script>
 
 <div
@@ -92,11 +91,10 @@
 
 				<li>
 					<button
-						on:click={() => (showTaskModal = !showTaskModal)}
 						class="cursor-pointer flex text-left w-full items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white group hover:bg-gray-100 dark:hover:bg-dark2"
 					>
 						<Plus />
-						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new task </span>
+						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new column </span>
 					</button>
 				</li>
 
@@ -164,4 +162,4 @@
 	</div>
 </div>
 <NewBoadModal bind:showBoardModal />
-<NewTaskModal bind:showTaskModal />
+<NewTaskModal />
