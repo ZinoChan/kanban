@@ -4,7 +4,7 @@
 	import Feather from '../svgs/Feather.svelte';
 	import Target from '../svgs/Target.svelte';
 
-	export let priority: String;
+	export let priority: string;
 </script>
 
 {#if priority === 'important'}
