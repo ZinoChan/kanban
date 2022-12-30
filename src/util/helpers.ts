@@ -22,12 +22,14 @@ const slugify = (str: string) =>
 		.replace(/[\s_-]+/g, '-')
 		.replace(/^-+|-+$/g, '');
 
-export const createBoard = (name: string, columns: TBoardColumn[]): TBoard => {
-	const boardId = uuid();
-	const $columns = columns.reduce((accumulator, value) => {
+export const addBoardId = (boardId: string, columns: TBoardColumn[]) =>
+	columns.reduce((accumulator, value) => {
 		return { ...accumulator, [value.id]: { ...value, boardId } };
 	}, {});
 
+export const createBoard = (name: string, columns: TBoardColumn[]): TBoard => {
+	const boardId = uuid();
+	const $columns = addBoardId(boardId, columns);
 	return {
 		id: boardId,
 		slug: slugify(name),
