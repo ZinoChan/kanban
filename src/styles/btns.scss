@@ -5,7 +5,7 @@
 	@apply text-white capitalize font-bold bg-primary3 hover:bg-[#4e4e8a] focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0;
 }
 .btn-theme {
-	@apply capitalize font-bold bg-white hover:bg-gray-200 dark:bg-dark1 dark:border-dark3 focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0  dark:hover:bg-dark3;
+	@apply border border-gray-200 capitalize font-bold bg-white hover:bg-gray-200 dark:bg-dark1 dark:border-dark3 focus:outline-none rounded text-sm px-7 py-3 text-center mr-3 md:mr-0  dark:hover:bg-dark3;
 }
 
 .btn-danger {
