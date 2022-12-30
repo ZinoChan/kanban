@@ -2,7 +2,7 @@
 	/** @type {import('./$types').PageData} */
 	import type { TBoard } from '../../../types/Board.types';
 	import { isSideBarOpen } from '../../../stores/settings';
-	import BoardColumn from '../../../components/BoardColumn.svelte';
+	import BoardColumnsList from '../../../components/BoardColumnsList.svelte';
 	export let data: TBoard;
 </script>
 
@@ -13,9 +13,7 @@
 >
 	{#if data}
 		<div class="flex  space-x-6">
-			{#each Object.values(data.columns) as column (column.id)}
-				<BoardColumn columnData={column} />
-			{/each}
+			<BoardColumnsList boardData={data} />
 		</div>
 	{:else}
 		<div class="text-gray-500">loading data...</div>
