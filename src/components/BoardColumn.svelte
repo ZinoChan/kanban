@@ -17,8 +17,9 @@
 <div>
 	<div class="flex min-w-[250px] space-x-4">
 		<div class="w-full">
+			<div class="relative mb-2 flex justify-between items-center">
 			<h3
-				class="text-sm font-semibold text-gray-800 dark:text-gray-400 uppercase mb-2 flex space-x-2 items-center"
+					class="text-sm font-semibold text-gray-800 dark:text-gray-400 uppercase flex space-x-2 items-center"
 			>
 				<span style="background: {_columnData.colColor};" class="w-3 h-3 rounded-full" />
 				<span>
