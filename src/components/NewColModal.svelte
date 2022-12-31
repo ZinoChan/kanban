@@ -9,11 +9,10 @@
 	import ColorPicker from './ColorPicker.svelte';
 	import BoardColumn from './Input.svelte';
 	export let showColModal: boolean;
-	let selectedBoard = Object.values($data.boards)[0].name;
 
 	$boardColumns = [];
 
-	let boardName = $data.boards[$currentBoardId].name;
+	$: boardName = $data.boards[$currentBoardId]?.name;
 
 	let firstCol = {
 		id: newUniqueId(),
