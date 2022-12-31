@@ -23,12 +23,7 @@
 				<Close />
 				<span class="sr-only">Close modal</span>
 			</button>
-			<h3 class="mt-4 font-bold text-lg text-red-500 mb-6 capitalize">Delete this task</h3>
-			<p class="font-bold text-sm text-gray-400 mb-4">
-				Are you sure you want to delete the 'Design Home page' task and its subtasks? This action
-				cannot be reversed.
-			</p>
-			<button class="w-full btn-danger mb-4"> delete task </button>
+			<slot />
 			<button on:click={() => (showDelModal = false)} class="btn-white w-full"> cancel </button>
 		</div>
 	</div>
