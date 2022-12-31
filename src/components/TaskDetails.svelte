@@ -11,7 +11,6 @@
 	$: task =
 		$data.boards[$currentTask.boardId]?.columns[$currentTask.colId]?.colTasks[$currentTask.id];
 
-	let showDropDown = false;
 	let showDelModal = false;
 
 	$: completedCount = task ? task.subTasks.filter((subTask) => subTask.isCompleted).length : 0;
