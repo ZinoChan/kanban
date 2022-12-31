@@ -4,9 +4,24 @@
 	import { showAddTaskModal } from '../stores/settings';
 	import type { TBoardColumn } from '../types/Board.types';
 	import Task from './Task.svelte';
+	import DropDown from './DropDown.svelte';
+
 	export let columnData: TBoardColumn;
 
 	$: _columnData = $data.boards[columnData.boardId].columns[columnData.id];
+
+	function onDelCol() {
+		let cols = Object.keys($data.boards[columnData.boardId].columns)
+			.filter((key) => key !== _columnData.id)
+			.reduce((obj, key) => {
+				return Object.assign(obj, {
+					[key]: $data.boards[columnData.boardId].columns[key]
+				});
+			}, {});
+		let newData = $data;
+		newData.boards[_columnData.boardId].columns = cols;
+		data.set(newData);
+	}
 
 	function onAddTask() {
 		currentColumn.set(_columnData);
@@ -18,15 +33,15 @@
 	<div class="flex min-w-[250px] space-x-4">
 		<div class="w-full">
 			<div class="relative mb-2 flex justify-between items-center">
-			<h3
+				<h3
 					class="text-sm font-semibold text-gray-800 dark:text-gray-400 uppercase flex space-x-2 items-center"
-			>
-				<span style="background: {_columnData.colColor};" class="w-3 h-3 rounded-full" />
-				<span>
-					{_columnData.colName}
-					<span>({Object.values(_columnData.colTasks).length})</span>
-				</span>
-			</h3>
+				>
+					<span style="background: {_columnData.colColor};" class="w-3 h-3 rounded-full" />
+					<span>
+						{_columnData.colName}
+						<span>({Object.values(_columnData.colTasks).length})</span>
+					</span>
+				</h3>
 				<DropDown>
 					<ul class="py-1  text-sm text-gray-700 dark:text-gray-200">
 						<li>
@@ -39,6 +54,7 @@
 						</li>
 					</ul>
 				</DropDown>
+			</div>
 			<button on:click={onAddTask} class="w-full mb-4 btn-theme text-gray-900 dark:text-white"
 				>+</button
 			>
