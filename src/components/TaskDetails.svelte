@@ -1,12 +1,11 @@
 <script lang="ts">
-	import MoreVertical from '../svgs/MoreVertical.svelte';
 	import { showSubTasksModal } from '../stores/settings';
 	import Close from '../svgs/Close.svelte';
-	import DeleteTask from './DeleteTask.svelte';
 	import { currentTask } from '../stores/selectedTask';
 	import type { ITask } from '../types/Board.types';
 	import { data } from '../stores/data';
 	import DropDown from './DropDown.svelte';
+	import DeleteModal from './DeleteModal.svelte';
 
 	$: task =
 		$data.boards[$currentTask.boardId]?.columns[$currentTask.colId]?.colTasks[$currentTask.id];
@@ -46,23 +45,23 @@
 		<div class="relative bg-white rounded-lg shadow dark:bg-dark2">
 			<div class="absolute flex items-center top-3 right-2.5 space-x-3">
 				<DropDown>
-				<ul class="py-1  text-sm text-gray-700 dark:text-gray-200">
-					<li>
-						<button
-							class="w-full text-left font-bold capitalize  py-2 px-4 hover:bg-gray-100 dark:hover:bg-dark3 dark:hover:text-white"
-						>
-							Edit
-						</button>
-					</li>
-					<li>
-						<button
-							on:click={() => (showDelModal = !showDelModal)}
-							class="w-full text-left font-bold capitalize text-red-600  py-2 px-4 hover:bg-gray-100 dark:hover:bg-dark3 "
-						>
-							Delete
-						</button>
-					</li>
-				</ul>
+					<ul class="py-1  text-sm text-gray-700 dark:text-gray-200">
+						<li>
+							<button
+								class="w-full text-left font-bold capitalize  py-2 px-4 hover:bg-gray-100 dark:hover:bg-dark3 dark:hover:text-white"
+							>
+								Edit
+							</button>
+						</li>
+						<li>
+							<button
+								on:click={() => (showDelModal = !showDelModal)}
+								class="w-full text-left font-bold capitalize text-red-600  py-2 px-4 hover:bg-gray-100 dark:hover:bg-dark3 "
+							>
+								Delete
+							</button>
+						</li>
+					</ul>
 				</DropDown>
 				<button
 					type="button"
@@ -129,7 +128,14 @@
 		</div>
 	</div>
 </div>
-<DeleteTask bind:showDelModal />
+<DeleteModal bind:showDelModal>
+	<h3 class="mt-4 font-bold text-lg text-red-500 mb-6 capitalize">Delete this task</h3>
+	<p class="font-bold text-sm text-gray-400 mb-4">
+		Are you sure you want to delete the 'Design Home page' task and its subtasks? This action cannot
+		be reversed.
+	</p>
+	<button class="w-full btn-danger mb-4"> delete task </button>
+</DeleteModal>
 
 <style>
 	.done {
