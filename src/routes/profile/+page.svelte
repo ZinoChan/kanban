@@ -1,7 +1,9 @@
 <script>
+	import { currentBoardId } from '../../stores/selectedBoard';
 	import Close from '../../svgs/Close.svelte';
 	import Edit from '../../svgs/Edit.svelte';
 	let isEdit = false;
+	currentBoardId.set('');
 </script>
 
 <section
