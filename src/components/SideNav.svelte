@@ -19,7 +19,7 @@
 	import { isSideBarOpen } from '../stores/settings';
 	import { data } from '../stores/data';
 	import NewColModal from './NewColModal.svelte';
-	export let isBoardPage: boolean;
+	import { currentBoardId } from '../stores/selectedBoard';
 
 	$: boardsData = Object.values($data.boards);
 	let showDropDown = false;
@@ -91,7 +91,7 @@
 						<span class="capitalize flex-1 font-bold ml-3 whitespace-nowrap"> add new board </span>
 					</button>
 				</li>
-				{#if isBoardPage}
+				{#if $currentBoardId !== ''}
 					<li>
 						<button
 							on:click={() => (showColModal = !showColModal)}
