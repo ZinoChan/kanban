@@ -26,6 +26,18 @@
 					<span>({Object.values(_columnData.colTasks).length})</span>
 				</span>
 			</h3>
+				<DropDown>
+					<ul class="py-1  text-sm text-gray-700 dark:text-gray-200">
+						<li>
+							<button
+								on:click={onDelCol}
+								class="w-full text-left font-bold capitalize text-red-600  py-2 px-4 hover:bg-gray-100 dark:hover:bg-dark3 "
+							>
+								Delete
+							</button>
+						</li>
+					</ul>
+				</DropDown>
 			<button on:click={onAddTask} class="w-full mb-4 btn-theme text-gray-900 dark:text-white"
 				>+</button
 			>

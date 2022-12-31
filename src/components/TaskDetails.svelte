@@ -6,6 +6,7 @@
 	import { currentTask } from '../stores/selectedTask';
 	import type { ITask } from '../types/Board.types';
 	import { data } from '../stores/data';
+	import DropDown from './DropDown.svelte';
 
 	$: task =
 		$data.boards[$currentTask.boardId]?.columns[$currentTask.colId]?.colTasks[$currentTask.id];
@@ -45,27 +46,7 @@
 	>
 		<div class="relative bg-white rounded-lg shadow dark:bg-dark2">
 			<div class="absolute flex items-center top-3 right-2.5 space-x-3">
-				<button
-					on:click={() => (showDropDown = !showDropDown)}
-					class="inline-flex items-center p-2 text-sm font-medium text-center group"
-					type="button"
-				>
-					<MoreVertical />
-				</button>
-				<button
-					type="button"
-					on:click={onCloseModal}
-					class="border border-gray-300 dark:border-dark3  text-gray-400 bg-transparent hover:bg-light hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-				>
-					<Close />
-					<span class="sr-only">Close modal</span>
-				</button>
-			</div>
-			<div
-				class={`${
-					showDropDown ? 'flex flex-col' : 'hidden'
-				} absolute top-12 right-2 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-dark4 dark:divide-gray-600`}
-			>
+				<DropDown>
 				<ul class="py-1  text-sm text-gray-700 dark:text-gray-200">
 					<li>
 						<button
@@ -83,6 +64,15 @@
 						</button>
 					</li>
 				</ul>
+				</DropDown>
+				<button
+					type="button"
+					on:click={onCloseModal}
+					class="border border-gray-300 dark:border-dark3  text-gray-400 bg-transparent hover:bg-light hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+				>
+					<Close />
+					<span class="sr-only">Close modal</span>
+				</button>
 			</div>
 
 			<div class="px-6 py-6 lg:px-8">
