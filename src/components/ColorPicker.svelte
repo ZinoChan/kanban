@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { randomColor } from '../util/helpers';
-	import clickOutside from '../util/clickOutside';
 
 	export let value = randomColor();
 	const values = [
@@ -45,7 +44,6 @@
 	{#if ddActive}
 		<div
 			class="p-4 absolute z-20 top-10 bg-white dark:bg-dark2 border border-gray-400 dark:border-dark3 rounded"
-			use:clickOutside
 		>
 			<div class="values-dropdown-grid">
 				{#each values as val}
