@@ -35,7 +35,7 @@
 		Notifications
 	</div>
 	<div class="divide-y divide-gray-100 dark:divide-dark1 ">
-		<a href="#" class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
+		<a href="/" class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-700">
 			<div class="pl-3 w-full">
 				<div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
 					urgent task is close to deadline
@@ -44,7 +44,7 @@
 		</a>
 	</div>
 	<a
-		href="#"
+		href="/"
 		class="block py-2 text-sm font-medium text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-dark4 dark:hover:bg-dark3 dark:text-white"
 	>
 		<div class="inline-flex items-center ">
