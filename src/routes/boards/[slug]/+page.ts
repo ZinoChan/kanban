@@ -1,12 +1,14 @@
 import { error } from '@sveltejs/kit';
-import { data } from '../../../stores/data';
 import { get } from 'svelte/store';
 import { currentBoardId } from '../../../stores/selectedBoard';
+import type { TData } from 'src/types/Data.types';
 
 export const ssr = false;
 
-export function load({ params }: { params: { slug: string } }) {
-	const $data = get(data);
+export async function load({ params }: { params: { slug: string } }) {
+	const dataImport = await import('../../../stores/data');
+
+	const $data: TData | undefined = get(dataImport.data);
 
 	const boardData = $data && Object.values($data.boards).find((board) => board.slug == params.slug);
 
