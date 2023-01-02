@@ -6,6 +6,7 @@
 	import SideNav from '../components/SideNav.svelte';
 	import TaskDetails from '../components/TaskDetails.svelte';
 	import NewIdea from '../components/NewIdea.svelte';
+	import IdeaDetails from '../components/IdeaDetails.svelte';
 </script>
 
 <main class="flex flex-col">
@@ -20,4 +21,5 @@
 
 <TaskDetails />
 <NewIdea />
+<IdeaDetails />
 <footer>copy right</footer>

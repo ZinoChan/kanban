@@ -12,3 +12,4 @@ export const showAddTaskModal = writable<boolean>(false);
 
 export const showIdeaModal = writable<boolean>(false);
 
+export const showIdeaDetails = writable<boolean>(false);
