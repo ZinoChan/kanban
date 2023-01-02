@@ -6,8 +6,7 @@ export type TData = {
 };
 
 export type TIdea = {
-	name: string;
-	tags: string[];
+	ideaTitle: string;
 	description: string;
 	id: string;
 };
