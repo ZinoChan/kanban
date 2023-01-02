@@ -54,8 +54,7 @@ export const dummyData = {
 	},
 	ideas: [
 		{
-			name: 'learn vue js',
-			tags: ['vue', 'javascript'],
+			ideaTitle: 'learn vue js',
 			description: 'learn vue and build a unicorn with it',
 			id: '#randomId9'
 		}
