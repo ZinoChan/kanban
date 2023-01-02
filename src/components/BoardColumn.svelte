@@ -55,7 +55,7 @@
 					</ul>
 				</DropDown>
 			</div>
-			<button on:click={onAddTask} class="w-full mb-4 btn-theme text-gray-900 dark:text-white"
+			<button on:click={onAddTask} class="w-full py-3 mb-4 btn-theme text-gray-900 dark:text-white"
 				>+</button
 			>
 

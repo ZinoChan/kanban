@@ -30,7 +30,10 @@
 				<p class="text-gray-800 dark:text-gray-300 text-center font-semibold mx-4 mb-0">OR</p>
 			</div>
 
-			<a class="btn-theme text-[#DB4437]  w-full flex justify-center items-center mb-3" href="#!">
+			<a
+				class="btn-theme text-[#DB4437] py-3  w-full flex justify-center items-center mb-3"
+				href="#!"
+			>
 				<span class="mr-2">
 					<Google />
 				</span>
