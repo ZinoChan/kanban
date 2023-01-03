@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
 	import Plus from '../../svgs/Plus.svelte';
 	import IdeaCard from '../../components/IdeaCard.svelte';
 	import { isSideBarOpen, showIdeaModal } from '../../stores/settings';
+	import { data } from '../../stores/data';
+
+	$: ideas = $data.ideas;
 </script>
 
 <section
