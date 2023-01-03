@@ -1,10 +1,13 @@
 <script>
+	import clickOutside from '../util/clickOutside';
 	import MoreVertical from '../svgs/MoreVertical.svelte';
 	let showDropDown = false;
 </script>
 
 <button
 	on:click={() => (showDropDown = !showDropDown)}
+	use:clickOutside
+	on:click_outside={() => (showDropDown = false)}
 	class="inline-flex items-center p-2 text-sm font-medium text-center group hover:bg-gray-200 dark:hover:bg-dark3 rounded"
 	type="button"
 >
