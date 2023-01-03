@@ -6,7 +6,7 @@
 	stroke-width="2"
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class="flex-shrink-0 w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-yellow-300"
+	class="flex-shrink-0 w-8 h-8  text-yellow-300"
 >
 	<line x1="9" y1="18" x2="15" y2="18" />
 	<line x1="10" y1="22" x2="14" y2="22" />
