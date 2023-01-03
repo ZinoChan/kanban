@@ -13,7 +13,6 @@
 		newData.ideas.push(newIdea);
 		data.set(newData);
 		showIdeaModal.set(false);
-		console.log($showIdeaModal);
 	};
 </script>
 
