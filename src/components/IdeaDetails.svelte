@@ -2,6 +2,7 @@
 	import Close from '../svgs/Close.svelte';
 	import { currentIdea } from '../stores/selectedIdea';
 	import { showIdeaDetails } from '../stores/settings';
+	import Bulb from '../svgs/Bulb.svelte';
 </script>
 
 <div
@@ -24,12 +25,22 @@
 				<span class="sr-only">Close modal</span>
 			</button>
 			<div class="px-6 py-6 lg:px-8">
-				<h3 class="mb-4 capitalize text-xl font-bold text-gray-900 dark:text-white">
-					{$currentIdea?.ideaTitle}
-				</h3>
-				<span class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200">
-					{$currentIdea?.description}
-				</span>
+				<div class="flex items-center justify-center mb-4 text-2xl">
+					<Bulb />
+				</div>
+				<div class="mb-6">
+					<span class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-400">Title:</span>
+					<h3 class="mb-4 capitalize text-xl font-bold text-gray-900 dark:text-white">
+						{$currentIdea?.ideaTitle}
+					</h3>
+					<span class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-400"
+						>description:</span
+					>
+					<p class="block font-bold text-gray-900 dark:text-gray-200">
+						{$currentIdea?.description}
+					</p>
+				</div>
+				<button class="btn-theme py-3 w-full text-red-600 hover:text-red-500"> delete idea </button>
 			</div>
 		</div>
 	</div>
