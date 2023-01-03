@@ -19,10 +19,10 @@
 		</button>
 	</div>
 	<div class="grid grid-cols-4 gap-6">
-		<IdeaCard />
-		<IdeaCard />
-		<IdeaCard />
-		<IdeaCard />
-		<IdeaCard />
+		{#if ideas.length > 0}
+			{#each ideas as idea}
+				<IdeaCard bind:idea />
+			{/each}
+		{/if}
 	</div>
 </section>
