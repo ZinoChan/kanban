@@ -3,6 +3,7 @@
 	import User from '../svgs/User.svelte';
 	import MoreVertical from '../svgs/MoreVertical.svelte';
 	import Trash from '../svgs/Trash.svelte';
+	import clickOutside from '../util/clickOutside';
 	let showDropDown = false;
 </script>
 
@@ -11,6 +12,8 @@
 		on:click={() => (showDropDown = !showDropDown)}
 		class="inline-flex items-center p-2 text-sm font-medium text-center group"
 		type="button"
+		use:clickOutside
+		on:click_outside={() => (showDropDown = false)}
 	>
 		<MoreVertical />
 	</button>
