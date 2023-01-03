@@ -1,5 +1,6 @@
-<script>
+	import type { TIdea } from '../types/Data.types';
 	import { showIdeaDetails } from '../stores/settings';
+	export let idea: TIdea;
 </script>
 
 <div
@@ -9,10 +10,10 @@
 >
 	<div>
 		<h3 class=" font-bold text-gray-900 dark:text-gray-200 group-hover:text-primary3 mb-3">
-			build a dashboard
+			{idea?.ideaTitle}
 		</h3>
 		<p class="text-bold text-sm text-gray-600 dark:text-gray-300">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit...
+			{idea?.description}
 		</p>
 	</div>
 </div>
