@@ -3,6 +3,14 @@
 	import { currentIdea } from '../stores/selectedIdea';
 	import { showIdeaDetails } from '../stores/settings';
 	import Bulb from '../svgs/Bulb.svelte';
+	import { data } from '../stores/data';
+
+	function onDeleteIdea() {
+		let currData = $data;
+		currData.ideas = $data.ideas?.filter((idea) => idea.id !== $currentIdea.id);
+		data.set(currData);
+		showIdeaDetails.set(false);
+	}
 </script>
 
 <div
@@ -40,7 +48,12 @@
 						{$currentIdea?.description}
 					</p>
 				</div>
-				<button class="btn-theme py-3 w-full text-red-600 hover:text-red-500"> delete idea </button>
+				<button
+					on:click={onDeleteIdea}
+					class="btn-theme py-3 w-full text-red-600 hover:text-red-500"
+				>
+					delete idea
+				</button>
 			</div>
 		</div>
 	</div>
