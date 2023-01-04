@@ -1,8 +1,14 @@
 <script lang="ts">
 	/** @type {import('./$types').PageData} */
 	import type { TBoard } from '../../../types/Board.types';
-	import { isSideBarOpen } from '../../../stores/settings';
+	import { isSideBarOpen, showEditBoard, showNewColModal } from '../../../stores/settings';
 	import BoardColumnsList from '../../../components/BoardColumnsList.svelte';
+	import Trash from '../../../svgs/Trash.svelte';
+	import { data as storageData } from '../../../stores/data';
+	import Edit from '../../../svgs/Edit.svelte';
+	import Plus from '../../../svgs/Plus.svelte';
+	import { currentBoardId } from '../../../stores/selectedBoard';
+
 	export let data: TBoard;
 
 	function onDeleteBoard() {
@@ -17,9 +23,15 @@
 			location.href = '/';
 		}
 	}
+
 	function onAddCol() {
 		currentBoardId.set(data.id);
 		showNewColModal.set(true);
+	}
+
+	function onEditBoard() {
+		currentBoardId.set(data.id);
+		showEditBoard.set(true);
 	}
 </script>
 
