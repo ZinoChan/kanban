@@ -17,6 +17,10 @@
 			location.href = '/';
 		}
 	}
+	function onAddCol() {
+		currentBoardId.set(data.id);
+		showNewColModal.set(true);
+	}
 </script>
 
 <section
