@@ -1,8 +1,5 @@
 <script>
-	import { currentBoardId } from '../../stores/selectedBoard';
 	import Google from '../../svgs/Google.svelte';
-
-	currentBoardId.set('');
 </script>
 
 <section
