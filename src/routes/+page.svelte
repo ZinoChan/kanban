@@ -1,8 +1,5 @@
 <script>
-	import { currentBoardId } from '../stores/selectedBoard';
 	import { isSideBarOpen } from '../stores/settings';
-
-	currentBoardId.set('');
 </script>
 
 <section
