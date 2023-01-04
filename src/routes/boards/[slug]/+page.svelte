@@ -4,6 +4,19 @@
 	import { isSideBarOpen } from '../../../stores/settings';
 	import BoardColumnsList from '../../../components/BoardColumnsList.svelte';
 	export let data: TBoard;
+
+	function onDeleteBoard() {
+		let newData = $storageData;
+		delete newData.boards[data.id];
+		storageData.set(newData);
+
+		if (Object.keys($storageData.boards).length > 0) {
+			let slug = $storageData.boards[Object.keys($storageData.boards)[0]].slug;
+			location.href = `/boards/${slug}`;
+		} else {
+			location.href = '/';
+		}
+	}
 </script>
 
 <section
