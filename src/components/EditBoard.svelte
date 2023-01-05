@@ -1,0 +1,56 @@
+<script lang="ts">
+	import Close from '../svgs/Close.svelte';
+	import { showEditBoard } from '../stores/settings';
+	import { currentBoardId } from '../stores/selectedBoard';
+	import { data } from '../stores/data';
+
+	$: currentBoard = $data.boards[$currentBoardId];
+</script>
+
+<div
+	on:click|self={() => showEditBoard.set(false)}
+	on:keyup={null}
+	class={`${
+		$showEditBoard ? '' : 'hidden'
+	} fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-opacity-80 bg-gray-300 dark:bg-dark4 dark:bg-opacity-90 w-screen h-screen p-4 overflow-x-visible overflow-y-auto md:inset-0 h-modal md:h-full`}
+>
+	<div
+		class="modal-box relative w-full h-full max-w-md md:h-auto max-h-[calc(100vh-64px)] overflow-visible"
+	>
+		<div class="relative bg-white rounded-lg shadow dark:bg-dark2">
+			<button
+				type="button"
+				on:click={() => showEditBoard.set(false)}
+				class="absolute border border-gray-300 dark:border-dark3 top-3 right-2.5 text-gray-400 bg-transparent hover:bg-light hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+			>
+				<Close />
+				<span class="sr-only">Close modal</span>
+			</button>
+			<div class="px-6 py-6 lg:px-8">
+				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+					Edit {currentBoard?.name} Board
+				</h3>
+				<form class="space-y-6">
+					<div>
+						<label
+							for="board name"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+							>Board Name</label
+						>
+						<input type="text" class="form-input" placeholder="e.g. Web Design" required />
+					</div>
+
+					<div>
+						<label
+							for="board columns"
+							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
+							>Board Columns</label
+						>
+					</div>
+					<button type="button" class="btn-secondary w-full">add Column</button>
+					<button type="submit" class="btn-primary w-full">Create Board</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
