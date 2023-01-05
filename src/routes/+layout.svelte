@@ -7,6 +7,7 @@
 	import TaskDetails from '../components/TaskDetails.svelte';
 	import NewIdea from '../components/NewIdea.svelte';
 	import IdeaDetails from '../components/IdeaDetails.svelte';
+	import EditBoard from '../components/EditBoard.svelte';
 </script>
 
 <main class="flex flex-col">
@@ -22,4 +23,5 @@
 <TaskDetails />
 <NewIdea />
 <IdeaDetails />
+<EditBoard />
 <footer>copy right</footer>
