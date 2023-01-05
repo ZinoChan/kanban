@@ -16,3 +16,4 @@ export const showIdeaDetails = writable<boolean>(false);
 
 export const showNewColModal = writable<boolean>(false);
 
+export const showEditBoard = writable<boolean>(false);
