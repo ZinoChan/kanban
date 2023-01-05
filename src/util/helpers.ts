@@ -22,7 +22,7 @@ const slugify = (str: string) =>
 		.replace(/[\s_-]+/g, '-')
 		.replace(/^-+|-+$/g, '');
 
-export const addBoardId = (boardId: string, columns: TBoardColumn[]) =>
+export const addBoardId = (boardId: string, columns: any[]) =>
 	columns.reduce((accumulator, value) => {
 		return { ...accumulator, [value.id]: { ...value, boardId } };
 	}, {});
