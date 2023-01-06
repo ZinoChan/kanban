@@ -10,6 +10,10 @@
 	import EditBoard from '../components/EditBoard.svelte';
 </script>
 
+<svelte:head>
+	<title>KanBan</title>
+</svelte:head>
+
 <main class="flex flex-col">
 	<Header />
 	<div class="relative flex w-full top-16">
