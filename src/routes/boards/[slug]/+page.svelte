@@ -10,7 +10,7 @@
 	import { currentBoardId } from '../../../stores/selectedBoard';
 
 	export let data: TBoard;
-
+	$: boardTitle = $storageData.boards[data.id].name;
 	function onDeleteBoard() {
 		let newData = $storageData;
 		delete newData.boards[data.id];
@@ -42,7 +42,7 @@
 >
 	<div class="flex space-x-4 items-center mb-8">
 		<h1 class="font-bold text-gray-900 dark:text-gray-100 text-2xl capitalize">
-			{data.name}
+			{boardTitle}
 		</h1>
 		<button on:click={onDeleteBoard} class="group btn-theme  p-1">
 			<Trash />
