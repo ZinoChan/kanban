@@ -3,9 +3,16 @@
 	import { showEditBoard } from '../stores/settings';
 	import { currentBoardId } from '../stores/selectedBoard';
 	import { data } from '../stores/data';
+	import ColorPicker from './ColorPicker.svelte';
+	import { randomColor } from '../util/helpers';
+	import { v4 as uuid } from 'uuid';
+	import type { TBoardColumn } from '../types/Board.types';
 
 	$: currentBoard = $data.boards[$currentBoardId];
+	let boardName = currentBoard?.name || '';
+
 	$: boardCols = currentBoard?.columns && Object.values(currentBoard?.columns);
+
 	$: newCols = [] as TBoardColumn[];
 
 	function addNewCol() {
@@ -29,6 +36,19 @@
 		newCols = newCols.filter((col) => id !== col.id);
 	}
 
+	function updateBoard() {
+		let newData = $data;
+		if (boardName && currentBoard?.name !== boardName && boardName !== '') {
+			newData.boards[currentBoard.id].name = boardName;
+		}
+		let cols = [...boardCols, ...newCols];
+		newData.boards[currentBoard.id].columns = cols.reduce((accumulator, value) => {
+			return { ...accumulator, [value.id]: { ...value } };
+		}, {});
+
+		data.set(newData);
+		showEditBoard.set(false);
+	}
 </script>
 
 <div
@@ -54,14 +74,19 @@
 				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
 					Edit {currentBoard?.name} Board
 				</h3>
-				<form class="space-y-6">
+				<form on:submit|preventDefault={updateBoard} class="space-y-6">
 					<div>
 						<label
 							for="board name"
 							class="block mb-2 text-sm font-bold text-gray-900 dark:text-gray-200"
 							>Board Name</label
 						>
-						<input type="text" class="form-input" placeholder="e.g. Web Design" required />
+						<input
+							bind:value={boardName}
+							type="text"
+							class="form-input"
+							placeholder="e.g. Web Design"
+						/>
 					</div>
 
 					<div>
@@ -123,6 +148,7 @@
 					</div>
 					<button on:click={addNewCol} type="button" class="btn-secondary w-full">add Column</button
 					>
+					<button type="submit" class="btn-primary w-full">Update Board</button>
 				</form>
 			</div>
 		</div>
