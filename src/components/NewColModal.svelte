@@ -71,7 +71,9 @@
 				<span class="sr-only">Close modal</span>
 			</button>
 			<div class="px-6 py-6 lg:px-8">
-				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Board: {boardName}</h3>
+				<h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+					Add new Column to Board: {boardName}
+				</h3>
 				<form on:submit|preventDefault={handleSubmit} class="space-y-6">
 					<div>
 						<label
@@ -95,7 +97,7 @@
 					</div>
 					<button type="button" on:click={addColumn} class="btn-secondary w-full">add Column</button
 					>
-					<button type="submit" class="btn-primary w-full">Create Board</button>
+					<button type="submit" class="btn-primary w-full">Create New Column</button>
 				</form>
 			</div>
 		</div>
