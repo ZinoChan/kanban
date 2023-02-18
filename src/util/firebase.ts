@@ -1,7 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+import type { UserCredential } from 'firebase/auth';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { modal } from 'src/stores/modal';
+import { toast } from 'src/stores/toast';
+import { getErrorMessage } from './errorMsg';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -23,4 +27,26 @@ export const auth = getAuth(firebaseApp);
 export async function signInWithGoogle() {
 	const credential = signInWithPopup(auth, new GoogleAuthProvider());
 	return loginHandler(credential);
+}
+
+async function loginHandler(promise: Promise<UserCredential>) {
+	let res: any, serverError: string;
+	try {
+		res = await promise;
+		modal.set(null);
+		toast.set({
+			message: 'Login Success!',
+			type: 'success'
+		});
+		serverError = '';
+	} catch (err) {
+		serverError = getErrorMessage(err);
+		console.error(err);
+		toast.set({
+			message: serverError,
+			type: 'error'
+		});
+	}
+
+	return { res, serverError };
 }
