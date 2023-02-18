@@ -21,6 +21,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
 
+// Auth
 export const auth = getAuth(firebaseApp);
 
 // Sign in with google
@@ -29,6 +30,7 @@ export async function signInWithGoogle() {
 	return loginHandler(credential);
 }
 
+//Login handler
 async function loginHandler(promise: Promise<UserCredential>) {
 	let res: any, serverError: string;
 	try {
@@ -49,4 +51,12 @@ async function loginHandler(promise: Promise<UserCredential>) {
 	}
 
 	return { res, serverError };
+}
+
+// Sign out
+export async function firebaseSignOut() {
+	await signOut(auth);
+	toast.set({
+		message: 'Signout Success!'
+	});
 }
