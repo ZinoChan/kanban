@@ -1,10 +1,16 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import type { UserCredential } from 'firebase/auth';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
-import { modal } from 'src/stores/modal';
-import { toast } from 'src/stores/toast';
+import { createUserWithEmailAndPassword, type UserCredential } from 'firebase/auth';
+import {
+	getAuth,
+	signInWithPopup,
+	GoogleAuthProvider,
+	signOut,
+	signInWithCredential
+} from 'firebase/auth';
+import { modal } from '../stores/modal';
+import { toast } from '../stores/toast';
 import { getErrorMessage } from './errorMsg';
 
 const firebaseConfig = {
@@ -27,6 +33,12 @@ export const auth = getAuth(firebaseApp);
 // Sign in with google
 export async function signInWithGoogle() {
 	const credential = signInWithPopup(auth, new GoogleAuthProvider());
+	return loginHandler(credential);
+}
+
+// Sign in with email and password
+export async function signUpWithEmail(email: string, password: string) {
+	const credential = createUserWithEmailAndPassword(auth, email, password);
 	return loginHandler(credential);
 }
 
