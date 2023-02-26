@@ -8,10 +8,8 @@ function emailValidator(value: string) {
 		);
 }
 
-function requiredValidator() {
-	return function required(value: string | null | undefined) {
-		return (value !== undefined && value !== null && value !== '') || 'This field is required';
-	};
+function fullNameValidator(value: string | null | undefined) {
+	return (value !== undefined && value !== null && value !== '' && value.length > 3) || false;
 }
 
 export { emailValidator, requiredValidator };
