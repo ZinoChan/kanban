@@ -2,13 +2,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { createUserWithEmailAndPassword, type UserCredential } from 'firebase/auth';
-import {
-	getAuth,
-	signInWithPopup,
-	GoogleAuthProvider,
-	signOut,
-	signInWithCredential
-} from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { modal } from '../stores/modal';
 import { toast } from '../stores/toast';
 import { getErrorMessage } from './errorMsg';
