@@ -6,6 +6,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/
 import { modal } from '../stores/modal';
 import { toast } from '../stores/toast';
 import { getErrorMessage } from './errorMsg';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -20,6 +21,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
+
+//Firestore
+const db = getFirestore(firebaseApp);
 
 // Auth
 export const auth = getAuth(firebaseApp);
@@ -65,4 +69,10 @@ export async function firebaseSignOut() {
 	toast.set({
 		message: 'Signout Success!'
 	});
+}
+
+export async function getBoards() {
+	const querySnapshot = await getDocs(collection(db, 'your-collection'));
+	const data = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+	return data;
 }
